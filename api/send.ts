@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     // EMAIL PARA VOCÊ
     await resend.emails.send({
-      from: "THS Growth <onboarding@resend.dev>",
+      from: "THS Growth <erik@thsgrowth.com>",
       to: "joao@thsgrowth.com",
       subject: "Novo Teste de Adoção Preenchido",
       html: `
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 
     // EMAIL PARA O LEAD
     await resend.emails.send({
-      from: "THS Growth <onboarding@resend.dev>",
+      from: "THS Growth <joao@thsgrowth.com>",
       to: email,
       subject: "Recebemos seu teste de adoção 🚀",
       html: `
