@@ -185,6 +185,36 @@ export default function CRMTest({ onBack }: { onBack: () => void }) {
   };
 
   const results = step === 'results' ? calculateResults() : null;
+const handleSendResult = async () => {
+  if (!results) return;
+
+  try {
+    await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nome: formData.name,
+        email: formData.email,
+        telefone: formData.whatsapp,
+        empresa: formData.company,
+        resultado: results.total,
+        indicadores: results.indicadores,
+        adocao: results.adocao,
+        usabilidade: results.usabilidade,
+      }),
+    });
+  } catch (error) {
+    console.error("Erro ao enviar resultado:", error);
+  }
+};
+
+useEffect(() => {
+  if (step === "results" && results) {
+    handleSendResult();
+  }
+}, [step]);
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
