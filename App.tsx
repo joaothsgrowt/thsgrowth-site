@@ -18,8 +18,8 @@ import {
   LogIn,
   Search
 } from 'lucide-react';
-import CRMTest from './components/CRMTest';
-import Logo from './components/Logo';
+import CRMTest from "./CRMTest"
+import Logo from "./Logo"
 
 // --- Components ---
 
