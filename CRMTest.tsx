@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect } from 'react';
+import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, 
@@ -185,36 +185,6 @@ export default function CRMTest({ onBack }: { onBack: () => void }) {
   };
 
   const results = step === 'results' ? calculateResults() : null;
-const handleSendResult = async () => {
-  if (!results) return;
-
-  try {
-    await fetch("/api/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nome: formData.name,
-        email: formData.email,
-        telefone: formData.whatsapp,
-        empresa: formData.company,
-        resultado: results.total,
-        indicadores: results.indicadores,
-        adocao: results.adocao,
-        usabilidade: results.usabilidade,
-      }),
-    });
-  } catch (error) {
-    console.error("Erro ao enviar resultado:", error);
-  }
-};
-
-useEffect(() => {
-  if (step === "results" && results) {
-    handleSendResult();
-  }
-}, [step]);
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
@@ -222,7 +192,7 @@ useEffect(() => {
       <header className="bg-white border-b border-gray-100 py-4 px-6 sticky top-0 z-50">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={onBack}>
-             <Logo variant="dark" compact />
+            <Logo variant="brand" height={32} />
             <span className="text-gray-300 mx-2">|</span>
             <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">Teste de CRM</span>
           </div>

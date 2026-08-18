@@ -1,5 +1,8 @@
 {
-  "name": "THS Growth",
-  "description": "Consultoria de CRM e RevOps com Teste de Maturidade e Captura de Leads.",
-  "requestFramePermissions": []
+  "name": "THS Growth - Enterprise Commercial Architecture",
+  "description": "A principal aliada de arquitetura comercial para empresas que precisam conectar dados, tecnologia, processos e pessoas à geração de receita.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
